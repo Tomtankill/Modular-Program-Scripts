@@ -88,7 +88,7 @@ public class UnityInputManager : InputManager {
     }
 
     public override float GetAxis(int playerId, InputAction action) {
-        float value = Input.GetAxisRaw(_actions[playerId][(int) action]);
+        float value = Input.GetAxis(_actions[playerId][(int) action]);
         return value;
     }
 }
