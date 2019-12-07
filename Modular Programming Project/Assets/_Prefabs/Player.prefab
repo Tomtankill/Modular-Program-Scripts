@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 7753841741891949160}
   - component: {fileID: 8925783427224592284}
   - component: {fileID: 3937874124418766398}
-  - component: {fileID: 7824392957171091781}
+  - component: {fileID: 8413051771093463422}
+  - component: {fileID: 7930532326972684475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -193,9 +194,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7824392957171091781
+--- !u!114 &8413051771093463422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,6 +205,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 8817843590734416352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cd04dea961f4b4c92fadd4ad95197d, type: 3}
+  m_Script: {fileID: 11500000, guid: 55bee2962c9c36040927727f26a5b275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 5
+  jumpSpeed: 6
+--- !u!114 &7930532326972684475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8817843590734416352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f813c682ba57d54287c55ccbe4ac66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  playerBody: {fileID: 0}

@@ -19,6 +19,9 @@ public class UnityInputManager : InputManager {
     [SerializeField] private string _spellThreeAxis = "";
     [SerializeField] private string _spellFourAxis = "";
     [SerializeField] private string _pauseAxis = "Cancel";
+    [SerializeField] private string _lookHorizontalAxis = "Mouse X";
+    [SerializeField] private string _lookVerticalAxis = "Mouse Y";
+
 
     private Dictionary<int, string>[] _actions;
 
@@ -40,6 +43,8 @@ public class UnityInputManager : InputManager {
             string prefix = !string.IsNullOrEmpty(_playerAxisPrefix) ? _playerAxisPrefix + i : string.Empty;
             AddAction(InputAction.MoveHorizontal, prefix + _moveHorizontalAxis, playerActions);
             AddAction(InputAction.MoveVertical, prefix + _moveVerticalAxis, playerActions);
+            AddAction(InputAction.LookHorizontal, prefix + _lookHorizontalAxis, playerActions);
+            AddAction(InputAction.LookVertical, prefix + _lookVerticalAxis, playerActions);
             AddAction(InputAction.Run, prefix + _runAxis, playerActions);
             AddAction(InputAction.Jump, prefix + _jumpAxis, playerActions);
             AddAction(InputAction.SpellOne, prefix + _spellOneAxis, playerActions);
