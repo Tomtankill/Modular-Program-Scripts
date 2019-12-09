@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     private void Start() {
         walkingController = GetComponent<WalkingController>();
         drivingController = GetComponent<DrivingController>();
+        flyingController = GetComponent<FlyingController>();
         MovementType = startingMovementType;
     }
 

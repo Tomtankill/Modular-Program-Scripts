@@ -35,12 +35,12 @@ public class WalkingController : BaseController {
 
         // Vertical Movement
         if (moveX != 0) {
-            walkVelocity += Vector3.forward * moveX * walkSpeed;
+            walkVelocity += transform.forward * moveX * walkSpeed;
         }
 
         // Horizontal Movement
         if (moveZ != 0) {
-            walkVelocity += Vector3.right * moveZ * walkSpeed;
+            walkVelocity += transform.right * moveZ * walkSpeed;
         }
 
         selfRigidBody.velocity = new Vector3(walkVelocity.x, selfRigidBody.velocity.y, walkVelocity.z);
