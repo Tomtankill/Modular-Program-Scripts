@@ -29,7 +29,7 @@ public class UnityInputManager : InputManager {
         base.Awake();
 
         if(InputManager.instance != null) {
-            isEnabled = false;
+            IsEnabled = false;
             return;
         }
 

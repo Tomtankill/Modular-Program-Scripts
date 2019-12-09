@@ -19,9 +19,5 @@ public abstract class BaseController : MonoBehaviour
         selfRigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
-    //protected virtual void Start() {
-    //    PlayerID = 0;
-    //}
-
     public abstract void GetInput();
 }

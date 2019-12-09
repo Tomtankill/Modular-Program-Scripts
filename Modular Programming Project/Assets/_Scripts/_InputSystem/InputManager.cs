@@ -23,7 +23,7 @@ public abstract class InputManager : MonoBehaviour, IInputManager {
         if (_dontDestryOnLoad) DontDestroyOnLoad(this.transform.root.gameObject); // Don't kill me when the scene changes.
     }
 
-    public bool isEnabled {
+    public bool IsEnabled {
         get {
             return this.isActiveAndEnabled;
         }
