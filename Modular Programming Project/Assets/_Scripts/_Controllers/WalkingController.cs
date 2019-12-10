@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,14 +23,11 @@ public class WalkingController : BaseController {
 
     void FixedUpdate() {
 
-        moveX = input.GetAxis(PlayerID, InputAction.MoveVertical);
-        moveZ = input.GetAxis(PlayerID, InputAction.MoveHorizontal);
-
         GetInput();
-
+        ApplyMovement();
     }
 
-    public override void GetInput() {
+    private void ApplyMovement() {
 
         walkVelocity = Vector3.zero;
 
@@ -42,8 +40,13 @@ public class WalkingController : BaseController {
         if (moveZ != 0) {
             walkVelocity += transform.right * moveZ * walkSpeed;
         }
-
         selfRigidBody.velocity = new Vector3(walkVelocity.x, selfRigidBody.velocity.y, walkVelocity.z);
+    }
+
+    public override void GetInput() {
+
+        moveX = input.GetAxis(PlayerID, InputAction.MoveVertical);
+        moveZ = input.GetAxis(PlayerID, InputAction.MoveHorizontal);
 
     }
 }
