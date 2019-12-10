@@ -16,37 +16,41 @@ public class WalkingController : BaseController {
     private float moveZ;
 
     void Start() {
-
         input = InputManager.instance;
-        
     }
 
     void FixedUpdate() {
 
         GetInput();
+        CalculateMovement();
         ApplyMovement();
     }
 
-    private void ApplyMovement() {
-
-        walkVelocity = Vector3.zero;
-
-        // Vertical Movement
-        if (moveX != 0) {
-            walkVelocity += transform.forward * moveX * walkSpeed;
-        }
-
-        // Horizontal Movement
-        if (moveZ != 0) {
-            walkVelocity += transform.right * moveZ * walkSpeed;
-        }
-        selfRigidBody.velocity = new Vector3(walkVelocity.x, selfRigidBody.velocity.y, walkVelocity.z);
-    }
 
     public override void GetInput() {
 
         moveX = input.GetAxis(PlayerID, InputAction.MoveVertical);
         moveZ = input.GetAxis(PlayerID, InputAction.MoveHorizontal);
 
+    }
+
+    private Vector3 CalculateMovement() {
+
+        walkVelocity = Vector3.zero;
+
+        // Vertical Movement
+        if (moveX != 0) {
+            walkVelocity += transform.forward * moveX * walkSpeed;
+            if (moveZ != 0) {
+                walkVelocity += transform.right * moveZ * walkSpeed;
+                return walkVelocity;
+            }
+            return walkVelocity;
+        }
+        return walkVelocity;
+    }
+
+    private void ApplyMovement() {
+        selfRigidBody.velocity = new Vector3(walkVelocity.x, selfRigidBody.velocity.y, walkVelocity.z);
     }
 }
