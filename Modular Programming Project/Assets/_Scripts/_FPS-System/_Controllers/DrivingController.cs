@@ -7,8 +7,12 @@ public class DrivingController : BaseController
     public DrivingController() {
     }
 
-    public override void GetInput() {
+    public override bool IsGrounded() {
+        throw new System.NotImplementedException();
+    }
 
+    public override void ReadInput() {
+        throw new System.NotImplementedException();
     }
 
     // Start is called before the first frame update

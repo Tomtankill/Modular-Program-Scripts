@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class FlyingController : BaseController
 {
-    public override void GetInput() {
+    public override bool IsGrounded() {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ReadInput() {
         throw new System.NotImplementedException();
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraControl : BaseController
 {
 
@@ -22,11 +23,11 @@ public class CameraControl : BaseController
     void Update()
     {
 
-        GetInput();
+        ReadInput();
 
     }
 
-    public override void GetInput() {
+    public override void ReadInput() {
 
         float mouseX = input.GetAxis(PlayerID, InputAction.LookHorizontal) * mouseSensitivity * Time.deltaTime;
         float mouseY = input.GetAxis(PlayerID, InputAction.LookVertical) * mouseSensitivity * Time.deltaTime;
@@ -34,7 +35,12 @@ public class CameraControl : BaseController
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerBody.Rotate(Vector3.left * mouseY);
-        playerBody.parent.Rotate(Vector3.up * mouseX);
+
+        transform.Rotate(Vector3.left * mouseY);
+        Camera.main.transform.Rotate(Vector3.up * mouseX);
+    }
+
+    public override bool IsGrounded() {
+        throw new System.NotImplementedException();
     }
 }
